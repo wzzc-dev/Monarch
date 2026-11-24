@@ -1,0 +1,353 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "local/orca_moui/app"
+
+import {
+  "wzzc-dev/moui/core",
+}
+
+// Values
+pub fn active_bot_of(Model) -> Bot?
+
+pub fn arrow_up_icon(Double, @core.Color) -> @core.View[Msg]
+
+pub fn arrow_up_right_icon(Double, @core.Color) -> @core.View[Msg]
+
+pub fn black_a(Double) -> @core.Color
+
+pub fn border_of(@core.Color, Double) -> @core.BorderStyle
+
+pub fn bots_screen(Model, Double, Double) -> @core.View[Msg]
+
+pub fn bots_seed() -> Array[Bot]
+
+pub fn brand_icon(AgentKind, Double) -> @core.View[Msg]
+
+pub fn chevrons_up_down_icon(Double, @core.Color) -> @core.View[Msg]
+
+pub fn code_icon(Double, @core.Color) -> @core.View[Msg]
+
+pub fn composer_border() -> @core.BorderStyle
+
+pub fn create_worktree_modal(Model, Double, Double) -> @core.View[Msg]
+
+pub fn done_badge() -> @core.View[Msg]
+
+pub fn find_bot(Model, String) -> Bot?
+
+pub fn find_session_bot(Model, String) -> Bot?
+
+pub fn find_worktree(Model, String) -> Worktree?
+
+pub fn folder_icon(Double, @core.Color) -> @core.View[Msg]
+
+pub fn folder_plus_icon(Double, @core.Color) -> @core.View[Msg]
+
+pub fn hairline() -> @core.BorderStyle
+
+pub fn has_worktree(Model, String) -> Bool
+
+pub fn loader_icon(Double, @core.Color) -> @core.View[Msg]
+
+pub fn machine_worktree_count(Machine) -> Int32
+
+pub fn mic_icon(Double, @core.Color) -> @core.View[Msg]
+
+pub fn mono(Double, Int32) -> @core.FontSpec
+
+pub fn orca_theme() -> @core.Theme
+
+pub fn paragraph(String, Double, Double, Int32, Double, @core.Color) -> @core.View[Msg]
+
+pub fn program() -> @core.Program[Model, Msg]
+
+pub fn program_with_model(Model) -> @core.Program[Model, Msg]
+
+pub fn sans(Double, Int32) -> @core.FontSpec
+
+pub fn sans_lh(Double, Int32, Double) -> @core.FontSpec
+
+pub fn scene_bots_model() -> Model
+
+pub fn scene_modal_model() -> Model
+
+pub fn selected_border() -> @core.BorderStyle
+
+pub fn shield_alert_icon(Double, @core.Color) -> @core.View[Msg]
+
+pub fn sliders_icon(Double, @core.Color) -> @core.View[Msg]
+
+pub fn slugify(String) -> String
+
+pub fn sparkles_icon(Double, @core.Color) -> @core.View[Msg]
+
+pub fn spinner(Double, @core.Color) -> @core.View[Msg]
+
+pub fn status_dot(@core.Color, Double) -> @core.View[Msg]
+
+pub fn status_indicator(AgentStatus) -> @core.View[Msg]
+
+pub fn transcript_of(Model, String) -> Array[Block]
+
+pub fn truncate_chars(String, Int32) -> String
+
+pub fn txt(String, Double, Int32, @core.Color) -> @core.View[Msg]
+
+pub fn update(Model, Msg) -> Model
+
+pub fn view(Model, @core.ViewEnvironment) -> @core.View[Msg]
+
+pub fn white_a(Double) -> @core.Color
+
+pub fn worktree_total(Model) -> Int32
+
+pub fn x_icon(Double, @core.Color) -> @core.View[Msg]
+
+// Errors
+
+// Types and methods
+#derive(Eq)
+pub(all) enum ActivityIcon {
+  AddActivity
+  PlayActivity
+  CheckActivity
+  LinkActivity
+  CommentActivity
+}
+
+pub(all) struct Agent {
+  name : String
+  kind : AgentKind
+  model : String
+  time : String
+  status : AgentStatus
+}
+
+#derive(Eq)
+pub(all) enum AgentKind {
+  Claude
+  Codex
+  Grok
+}
+
+#derive(Eq)
+pub(all) enum AgentStatus {
+  Running
+  Working
+  Done
+  Idle
+}
+
+pub(all) enum Block {
+  UserMessage(String)
+  AssistantMessage(String)
+  Worked(WorkedRow)
+  Worker(WorkerCard)
+  LiveRow(String, String)
+}
+
+pub(all) struct Bot {
+  id : String
+  name : String
+  mascot : Mascot
+  working : Int32
+  subtitle : String
+  time : String
+  status : AgentStatus
+  sessions : Array[Session]
+  item : BotItem?
+}
+
+pub(all) struct BotActivity {
+  icon : ActivityIcon
+  text : String
+  sub : String
+  time : String
+}
+
+pub(all) struct BotItem {
+  number : String
+  title : String
+  state : String
+  meta : String
+  chips : Array[ToolChip]
+  done_means : String
+  activities : Array[BotActivity]
+  message : BotMessage?
+}
+
+pub(all) struct BotMessage {
+  name : String
+  time : String
+  line1 : String
+  line2 : String
+  reply_chip : String
+}
+
+pub(all) struct Machine {
+  name : String
+  host : String
+  projects : Array[Project]
+}
+
+#derive(Eq)
+pub(all) enum Mascot {
+  Scout
+  CIWatch
+  ReviewBuddy
+  ReleaseNotes
+  Standup
+  DocsHelper
+}
+
+pub(all) struct Model {
+  machines : Array[Machine]
+  tabs : Array[String]
+  active : String
+  draft : String
+  modal_open : Bool
+  modal_name : String
+  modal_from : Int32
+  modal_advanced : Bool
+  create_more : Bool
+  section : NavSection
+  screen : Screen
+  bots : Array[Bot]
+  active_bot : String
+  active_session : String
+  center_tab : Int32
+  panel_tab : Int32
+  comment_draft : String
+  comments : Array[String]
+  flag_selected : Bool
+}
+pub fn Model::new() -> Self
+
+pub(all) enum Msg {
+  SelectWorktree(String)
+  CloseTab(String)
+  NewTab
+  OpenModal
+  CloseModal
+  NameInput(String)
+  SelectCreateFrom(Int32)
+  ToggleAdvanced
+  ToggleCreateMore
+  CreateWorktree
+  ToggleWorked(String, Int32)
+  DraftInput(String)
+  Send
+  SetSection(NavSection)
+  SetScreen(Screen)
+  SelectBot(String)
+  SetCenterTab(Int32)
+  SetPanelTab(Int32)
+  CommentInput(String)
+  SendComment
+  ToggleFlag
+  Noop
+}
+
+#derive(Eq)
+pub(all) enum NavSection {
+  Search
+  Tasks
+  Automations
+  Bots
+}
+
+pub(all) struct Project {
+  id : String
+  name : String
+  kind : ProjectKind
+  worktrees : Array[Worktree]
+}
+
+#derive(Eq)
+pub(all) enum ProjectKind {
+  Globe
+  Folder
+}
+
+#derive(Eq)
+pub(all) enum Screen {
+  Projects
+  Bots
+}
+
+pub(all) struct Session {
+  id : String
+  kind : SessionKind
+  label : String
+  time : String
+  status : AgentStatus
+}
+
+#derive(Eq)
+pub(all) enum SessionKind {
+  Home
+  ClaudeSession
+  CodexSession
+  Slack
+}
+
+pub(all) struct ToolChip {
+  text : String
+  kind : ToolChipKind
+}
+
+#derive(Eq)
+pub(all) enum ToolChipKind {
+  Neutral
+  Amber
+  Green
+  Link
+  Status
+  Plain
+}
+
+#derive(Eq)
+pub(all) enum ToolIcon {
+  List
+  ClaudeTool
+  CodexTool
+  BotTool
+  LinkTool
+  PlusTool
+  CheckTool
+  CommentTool
+  PlayTool
+}
+
+pub(all) struct ToolRow {
+  icon : ToolIcon
+  lead : String
+  chips : Array[ToolChip]
+}
+
+pub(all) struct WorkedRow {
+  label : String
+  body : String
+  expanded : Bool
+}
+
+pub(all) struct WorkerCard {
+  name : String
+  kind : AgentKind
+  time : String
+  body : String
+  focused : Bool
+}
+
+pub(all) struct Worktree {
+  id : String
+  name : String
+  branch : String
+  primary : Bool
+  tab_title : String
+  agents : Array[Agent]
+  transcript : Array[Block]
+}
+
+// Type aliases
+
+// Traits

@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "id": "orca_moui",
+  "title": "Orca",
+  "module": "local/orca_moui",
+  "mouiVersion": "0.9.1",
+  "platforms": [
+    "web",
+    "linux"
+  ]
+}

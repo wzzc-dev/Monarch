@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Orca</title>
+    <style>
+      * { box-sizing: border-box; }
+      html, body, #canvas-host { width: 100%; height: 100%; margin: 0; }
+      body { overflow: hidden; background: #f6f7f9; }
+      canvas { display: block; width: 100%; height: 100%; outline: none; touch-action: none; }
+    </style>
+  </head>
+  <body>
+    <div id="canvas-host" aria-label="MoUI canvas host"></div>
+    <script type="module">
+      import { bootMouiWasmGcApp } from "../.mooncakes/wzzc-dev/moui_web_renderer/runtime.js";
+      bootMouiWasmGcApp({
+        wasmUrl: new URL("../_build/wasm-gc/debug/build/web_wasm/web_wasm.wasm", import.meta.url),
+        canvasHost: "#canvas-host",
+      }).catch(error => console.error(error));
+    </script>
+  </body>
+</html>
