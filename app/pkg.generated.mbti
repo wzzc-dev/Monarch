@@ -3,34 +3,241 @@ package "local/orca_moui/app"
 
 import {
   "wzzc-dev/moui/core",
+  "wzzc-dev/moui/services",
 }
 
 // Values
 pub fn active_bot_of(Model) -> Bot?
 
+pub fn agent_row_name_limit(Double) -> Int32
+
+pub fn agent_row_shows_model(Double) -> Bool
+
 pub fn arrow_up_icon(Double, @core.Color) -> @core.View[Msg]
 
 pub fn arrow_up_right_icon(Double, @core.Color) -> @core.View[Msg]
+
+pub fn automation_action_summary_width(Double) -> Double
+
+pub fn automation_col_scale(Double) -> Double
+
+pub fn automation_columns_width(Double) -> Double
+
+pub fn automation_editor_modal(Model, Double, Double) -> @core.View[Msg]
+
+pub fn automation_header_actions_width(Double) -> Double
+
+pub fn automation_next_run_label(Model, Int32) -> String
+
+pub fn automation_period_ms(Int32) -> Double
+
+pub fn automation_project_label(Int32) -> String
+
+pub fn automation_runs_delta(Model) -> Int32
+
+pub fn automation_runs_delta_label(Model) -> String
+
+pub fn automation_save_blocked(Model) -> Bool
+
+pub fn automation_schedule_label(Int32) -> String
+
+pub fn automation_success_pct(Model) -> Int32
+
+pub fn automation_trailing_width() -> Double
+
+pub fn automations_card_width(Double) -> Double
+
+pub fn automations_compact(Double) -> Bool
+
+pub fn automations_content_width(Double) -> Double
 
 pub fn black_a(Double) -> @core.Color
 
 pub fn border_of(@core.Color, Double) -> @core.BorderStyle
 
+pub fn bot_chat_has_messages(Model) -> Bool
+
+pub fn bot_chat_key(Model) -> String
+
+pub fn bot_chat_waiting(Model) -> Bool
+
+pub fn bot_comment_key(Model) -> String
+
+pub fn bot_flag_key(Model) -> String
+
+pub fn bot_flag_on(Model) -> Bool
+
+pub fn bot_has_seed_transcript(Bot) -> Bool
+
+pub fn bot_home_empty_copy(Model, Bot) -> String
+
+pub fn bot_item_from_message(Bot, Int32, String) -> BotItem
+
+pub fn bot_item_state(Bot) -> String
+
+pub fn bot_item_states() -> Array[String]
+
+pub fn bot_matches(Bot, String) -> Bool
+
+pub let bots_center_tabs_width : Double
+
+pub fn bots_compact(Double) -> Bool
+
+pub fn bots_compact_chrome_width() -> Double
+
+pub fn bots_composer_menu_height(Model) -> Double
+
+pub fn bots_composer_model_label(Int32) -> String
+
+pub fn bots_composer_placeholder(Double) -> String
+
+pub let bots_eng_tab_width : Double
+
+pub let bots_home_tab_width : Double
+
+pub fn bots_needing_you(Model) -> Int32
+
+pub fn bots_needs_label(Int32) -> String
+
+pub fn bots_panel_narrow(Double) -> Bool
+
+pub fn bots_panel_title_wraps(Double) -> Bool
+
+pub fn bots_pinned_widths(Model, Double) -> (Double, Double)
+
 pub fn bots_screen(Model, Double, Double) -> @core.View[Msg]
 
 pub fn bots_seed() -> Array[Bot]
 
+pub fn bots_status_compact(Double) -> Bool
+
+pub fn bots_tab_eng_visible(Double, Bool, Bool) -> Bool
+
+pub fn bots_tab_open(Model) -> Bool
+
+pub fn bots_tab_plus_visible(Double) -> Bool
+
 pub fn brand_icon(AgentKind, Double) -> @core.View[Msg]
+
+pub fn chat_content_width(Double) -> Double
+
+pub fn chat_prose_width(Double) -> Double
+
+pub fn check_circle_icon(Double, @core.Color) -> @core.View[Msg]
 
 pub fn chevrons_up_down_icon(Double, @core.Color) -> @core.View[Msg]
 
+pub fn clamp_bots_panel_width(Double) -> Double
+
+pub fn clamp_bots_sidebar_width(Double) -> Double
+
+pub fn clamp_sidebar_width(Double) -> Double
+
 pub fn code_icon(Double, @core.Color) -> @core.View[Msg]
+
+pub fn compact_panel_width(Model, Double) -> Double
+
+pub fn composer_accept_index(Model, ComposerMenu) -> Int32
+
+pub fn composer_access_label(Int32) -> String
+
+pub fn composer_access_short_label(Int32) -> String
+
+pub fn composer_active_accept_index(Model) -> Int32
+
+pub fn composer_area_height(Model) -> Double
 
 pub fn composer_border() -> @core.BorderStyle
 
+pub fn composer_footer_compact(Double) -> Bool
+
+pub fn composer_mention_trigger(String) -> String
+
+pub fn composer_menu(String, Array[SeedFile]) -> ComposerMenu?
+
+pub fn composer_menu_active(Model) -> ComposerMenu?
+
+pub fn composer_menu_height(ComposerMenu) -> Double
+
+pub fn composer_menu_keys_active(Model) -> Bool
+
+pub fn composer_model_label(Int32) -> String
+
+pub fn composer_pick_index(Model, ComposerMenu) -> Int32
+
+pub fn composer_placeholder(Double) -> String
+
 pub fn create_worktree_modal(Model, Double, Double) -> @core.View[Msg]
 
+pub fn delete_worktree_modal(Model, Double, Double) -> @core.View[Msg]
+
+pub fn dialog_card_width(Double) -> Double
+
+pub fn dictation_append(String, String) -> String
+
+pub fn dictation_phrase(Int32) -> String
+
+pub fn diff_compact(Double) -> Bool
+
+pub fn diff_compact_pane_heights(Double) -> (Double, Double)
+
+pub fn diff_composer_active_accept_index(Model) -> Int32
+
+pub fn diff_composer_menu_active(Model) -> ComposerMenu?
+
+pub fn diff_composer_menu_height(Model) -> Double
+
+pub fn diff_composer_menu_keys_active(Model) -> Bool
+
+pub fn diff_composer_overlay(Double) -> Bool
+
+pub fn diff_composer_placeholder(Double) -> String
+
+pub fn diff_context_path_label(String, Double) -> String
+
+pub fn diff_file_count(Model) -> Int32
+
+pub fn diff_file_name(Int32) -> String
+
+pub fn diff_file_name_for(Model, Int32) -> String
+
+pub fn diff_line_count(Model) -> Int32
+
+pub fn diff_note_card_width(Double, Bool) -> Double
+
+pub fn diff_note_text(Model) -> String?
+
+pub fn diff_review_agent(Model) -> AgentKind
+
+pub fn diff_review_title(Model) -> String
+
+pub fn diff_screen(Model, Double, Double) -> @core.View[Msg]
+
+pub fn diff_selection_bounds(Model) -> (Int32, Int32)
+
+pub fn diff_tab_closable(Model, Int32) -> Bool
+
+pub fn diff_tab_visible(Model, Int32, Double) -> Bool
+
+pub fn diff_toolbar_path_width(Double) -> Double
+
+pub fn diff_verdict_visible(Model) -> Bool
+
 pub fn done_badge() -> @core.View[Msg]
+
+pub fn done_body_lines(String, Int32) -> Array[String]
+
+pub fn done_body_max_chars(Double) -> Int32
+
+pub fn enter_page_action(Model, Bool) -> Msg
+
+pub fn filtered_bots(Model) -> Array[Bot]
+
+pub fn filtered_files(Model) -> Array[SeedFile]
+
+pub fn filtered_search_hits(Model) -> Array[SearchHit]
+
+pub fn filtered_task_indices(Model) -> Array[Int32]
 
 pub fn find_bot(Model, String) -> Bot?
 
@@ -44,7 +251,21 @@ pub fn folder_plus_icon(Double, @core.Color) -> @core.View[Msg]
 
 pub fn hairline() -> @core.BorderStyle
 
+pub fn has_bot(Model, String) -> Bool
+
 pub fn has_worktree(Model, String) -> Bool
+
+pub fn help_card_width(Double) -> Double
+
+pub fn help_labels_compact(Double) -> Bool
+
+pub fn help_modal(Double, Double) -> @core.View[Msg]
+
+pub fn help_shortcut_labels(Bool) -> Array[String]
+
+pub fn live_worktrees(Model) -> Array[Worktree]
+
+pub fn load_model_json(String) -> Model?
 
 pub fn loader_icon(Double, @core.Color) -> @core.View[Msg]
 
@@ -52,9 +273,45 @@ pub fn machine_worktree_count(Machine) -> Int32
 
 pub fn mic_icon(Double, @core.Color) -> @core.View[Msg]
 
+pub fn modal_advanced_compact(Double) -> Bool
+
+pub fn modal_agent_kind(Int32) -> AgentKind
+
+pub fn modal_agent_label(Int32) -> String
+
+pub fn modal_agent_model(Int32) -> String
+
+pub fn modal_base_branch_label(Int32) -> String
+
+pub fn modal_chips_stack(Double) -> Bool
+
+pub fn modal_create_blocked(Model) -> Bool
+
+pub fn modal_target_host(Int32) -> String
+
+pub fn modal_target_project(Int32) -> String
+
 pub fn mono(Double, Int32) -> @core.FontSpec
 
+pub fn new_bot_intro(Bot) -> String
+
 pub fn orca_theme() -> @core.Theme
+
+pub fn overlay_card_width(Double) -> Double
+
+pub fn overlay_footer_compact(Double) -> Bool
+
+pub fn page_arrow_blocked(Model, Bool) -> Bool
+
+pub fn page_compact_pills(Double) -> Bool
+
+pub fn page_header_compact(Double) -> Bool
+
+pub fn page_screen(Model, Double, Double) -> @core.View[Msg]
+
+pub fn panel_file_text_width(Double) -> Double
+
+pub fn panel_row_inner_width(Double) -> Double
 
 pub fn paragraph(String, Double, Double, Int32, Double, @core.Color) -> @core.View[Msg]
 
@@ -62,17 +319,125 @@ pub fn program() -> @core.Program[Model, Msg]
 
 pub fn program_with_model(Model) -> @core.Program[Model, Msg]
 
+pub fn program_with_timer(@services.TimerSource) -> @core.Program[Model, Msg]
+
+pub fn program_with_timer_model(Model, @services.TimerSource) -> @core.Program[Model, Msg]
+
+pub fn rename_save_blocked(Model) -> Bool
+
+pub fn rename_worktree_modal(Model, Double, Double) -> @core.View[Msg]
+
 pub fn sans(Double, Int32) -> @core.FontSpec
 
 pub fn sans_lh(Double, Int32, Double) -> @core.FontSpec
 
+pub fn save_model_json(Model) -> String
+
+pub fn scene_app_menu_model() -> Model
+
+pub fn scene_automation_editor_model() -> Model
+
+pub fn scene_automations_empty_model() -> Model
+
+pub fn scene_automations_model() -> Model
+
+pub fn scene_automations_narrow_model() -> Model
+
+pub fn scene_automations_scheduled_model() -> Model
+
+pub fn scene_bots_dictation_model() -> Model
+
+pub fn scene_bots_files_model() -> Model
+
 pub fn scene_bots_model() -> Model
+
+pub fn scene_bots_narrow_model() -> Model
+
+pub fn scene_bots_panel_narrow_model() -> Model
+
+pub fn scene_bots_status_model() -> Model
+
+pub fn scene_composer_commands_model() -> Model
+
+pub fn scene_composer_mentions_model() -> Model
+
+pub fn scene_delete_worktree_model() -> Model
+
+pub fn scene_diff_checks_model() -> Model
+
+pub fn scene_diff_files_model() -> Model
+
+pub fn scene_diff_model() -> Model
+
+pub fn scene_help_model() -> Model
+
+pub fn scene_hero_narrow_model() -> Model
+
+pub fn scene_modal_advanced_model() -> Model
 
 pub fn scene_modal_model() -> Model
 
+pub fn scene_rename_worktree_model() -> Model
+
+pub fn scene_search_files_model() -> Model
+
+pub fn scene_search_model() -> Model
+
+pub fn scene_search_narrow_model() -> Model
+
+pub fn scene_tasks_link_model() -> Model
+
+pub fn scene_tasks_link_phone_model() -> Model
+
+pub fn scene_tasks_list_narrow_model() -> Model
+
+pub fn scene_tasks_model() -> Model
+
+pub fn scene_tasks_narrow_model() -> Model
+
+pub fn scene_worktree_menu_model() -> Model
+
+pub fn search_file_scope(String) -> (Bool, String)
+
+pub fn search_filter_count(Model, Int32) -> Int32
+
+pub fn search_filters_compact(Double) -> Bool
+
+pub fn search_header_subtitle(Double) -> String
+
+pub fn search_hit_marker_visible(Double) -> Bool
+
+pub fn search_hit_meta_visible(Double) -> Bool
+
+pub fn search_hit_title_width(Double) -> Double
+
+pub fn search_query_has_file_scope(Model) -> Bool
+
+pub fn select_value_width(Double, Double) -> Double
+
 pub fn selected_border() -> @core.BorderStyle
 
+pub fn session_row_label_limit(Double) -> Int32
+
+pub fn session_row_label_width(Double) -> Double
+
+pub fn shell_compact(Double) -> Bool
+
+pub fn shell_compact_chrome_width() -> Double
+
+pub fn shell_tab_back_visible(Double) -> Bool
+
+pub fn shell_tab_forward_visible(Double) -> Bool
+
+pub fn shell_tab_icons_visible(Double) -> Bool
+
+pub fn shell_tab_plus_visible(Double) -> Bool
+
+pub fn shell_tab_strip_width(Double, Int32, Bool, Bool) -> Double
+
 pub fn shield_alert_icon(Double, @core.Color) -> @core.View[Msg]
+
+pub fn sidebar_nav_visible(Model, Bool) -> Bool
 
 pub fn sliders_icon(Double, @core.Color) -> @core.View[Msg]
 
@@ -86,6 +451,42 @@ pub fn status_dot(@core.Color, Double) -> @core.View[Msg]
 
 pub fn status_indicator(AgentStatus) -> @core.View[Msg]
 
+pub fn tab_back_shown(Model, Double) -> Bool
+
+pub fn tab_forward_shown(Model, Double) -> Bool
+
+pub fn tab_strip_max_width(Int32) -> Double
+
+pub fn tabs_show_status_badge(Double, Worktree) -> Bool
+
+pub fn task_activity_stamps(String) -> (String, String, String)
+
+pub fn task_add_blocked(Model) -> Bool
+
+pub fn task_agent_model(Int32) -> String
+
+pub fn task_assignee_label(String) -> String
+
+pub fn task_composer_agent_compact(Double) -> Bool
+
+pub fn task_composer_agent_label(AgentKind, Double) -> String
+
+pub fn task_composer_extra(Model, Bool) -> Double
+
+pub fn task_filter_count(Model, Int32, Int32) -> Int32
+
+pub fn task_filter_pills_dense(Double) -> Bool
+
+pub fn task_row_compact(Double) -> Bool
+
+pub fn task_row_time_visible(Double) -> Bool
+
+pub fn task_row_title_width(Double) -> Double
+
+pub fn task_source_kind(Int32) -> TaskSource
+
+pub fn tasks_compact(Double) -> Bool
+
 pub fn transcript_of(Model, String) -> Array[Block]
 
 pub fn truncate_chars(String, Int32) -> String
@@ -97,6 +498,10 @@ pub fn update(Model, Msg) -> Model
 pub fn view(Model, @core.ViewEnvironment) -> @core.View[Msg]
 
 pub fn white_a(Double) -> @core.Color
+
+pub fn worktree_card_padding() -> (Double, Double)
+
+pub fn worktree_has_completion(Worktree) -> Bool
 
 pub fn worktree_total(Model) -> Int32
 
@@ -137,6 +542,26 @@ pub(all) enum AgentStatus {
   Idle
 }
 
+pub(all) struct Automation {
+  name : String
+  subtitle : String
+  schedule : String
+  schedule_index : Int32
+  last_run : String
+  status : String
+  tone : TaskStatus
+  enabled : Bool
+  next_run_ms : Double
+}
+
+pub(all) struct AutomationRun {
+  automation : Int32
+  state : String
+  note : String
+  time : String
+  tone : TaskStatus
+}
+
 pub(all) enum Block {
   UserMessage(String)
   AssistantMessage(String)
@@ -153,6 +578,7 @@ pub(all) struct Bot {
   subtitle : String
   time : String
   status : AgentStatus
+  item_state : String
   sessions : Array[Session]
   item : BotItem?
 }
@@ -162,6 +588,16 @@ pub(all) struct BotActivity {
   text : String
   sub : String
   time : String
+}
+
+pub(all) struct BotChatMessage {
+  key : String
+  block : Block
+}
+
+pub(all) struct BotComment {
+  key : String
+  text : String
 }
 
 pub(all) struct BotItem {
@@ -181,6 +617,36 @@ pub(all) struct BotMessage {
   line1 : String
   line2 : String
   reply_chip : String
+}
+
+pub(all) struct ComposerMenu {
+  is_command : Bool
+  query : String
+  suggestions : Array[ComposerSuggestion]
+}
+
+pub(all) struct ComposerSuggestion {
+  label : String
+  detail : String
+  insert : String
+}
+
+pub(all) struct Connector {
+  name : String
+  mascot : Mascot
+  account : String
+  detail : String
+  connected : Bool
+}
+
+#derive(Eq)
+type DiffKind
+
+pub(all) struct DiffNote {
+  file : Int32
+  line : Int32
+  end_line : Int32
+  text : String
 }
 
 pub(all) struct Machine {
@@ -203,27 +669,121 @@ pub(all) struct Model {
   machines : Array[Machine]
   tabs : Array[String]
   active : String
+  deleted_worktrees : Array[String]
   draft : String
+  dictation_target : Int32
+  composer_pick : Int32
+  composer_menu_closed : Bool
+  chat_scroll_y : Double
   modal_open : Bool
   modal_name : String
   modal_from : Int32
   modal_advanced : Bool
+  modal_base_branch : Int32
+  modal_agent : Int32
+  modal_target : Int32
+  rename_open : Bool
+  rename_target : String
+  rename_draft : String
+  delete_open : Bool
+  delete_target : String
   create_more : Bool
   section : NavSection
   screen : Screen
+  nav_back : Array[NavEntry]
+  nav_forward : Array[NavEntry]
   bots : Array[Bot]
   active_bot : String
   active_session : String
   center_tab : Int32
   panel_tab : Int32
+  bots_item_open : Bool
+  bot_chat_open : Bool
+  bot_eng_open : Bool
+  bot_status_menu_open : Bool
   comment_draft : String
-  comments : Array[String]
-  flag_selected : Bool
+  comments : Array[BotComment]
+  flag_keys : Array[String]
+  composer_model : Int32
+  composer_access : Int32
+  bot_messages : Array[BotChatMessage]
+  bot_item_seq : Int32
+  bots_collapsed : Bool
+  bot_search_open : Bool
+  bot_query : String
+  bots_options_open : Bool
+  bots_show_sessions : Bool
+  connectors : Array[Connector]
+  connector_open : Int32
+  search_query : String
+  search_filter : Int32
+  search_filter_before_scope : Int32
+  search_selected : Int32
+  hover : String
+  sidebar_open : Bool
+  sidebar_w : Double
+  bots_sidebar_w : Double
+  bots_panel_w : Double
+  sidebar_options_open : Bool
+  app_menu_open : Bool
+  ctx_open : Bool
+  ctx_kind : Int32
+  ctx_target : String
+  ctx_index : Int32
+  ctx_anchor : @core.Point
+  collapsed_machines : Array[String]
+  collapsed_projects : Array[String]
+  task_selected : Int32
+  task_filter : Int32
+  task_source_filter : Int32
+  task_query : String
+  task_draft : String
+  task_composer_open : Bool
+  task_new_source : Int32
+  task_new_agent : Int32
+  task_detail_editing : Bool
+  task_detail_draft : String
+  task_detail_open : Bool
+  task_link_menu_open : Bool
+  task_link_after_create : Int32
+  tasks : Array[Task]
+  files : Array[SeedFile]
+  files_query : String
+  automation_selected : Int32
+  automations : Array[Automation]
+  automation_runs : Array[AutomationRun]
+  automation_runs_today : Int32
+  automation_runs_yesterday : Int32
+  automation_passed_today : Int32
+  automation_attention_today : Int32
+  automation_clock_ms : Double
+  automation_editor_open : Bool
+  automation_editor_index : Int32
+  automation_name : String
+  automation_schedule : Int32
+  automation_project : Int32
+  automation_runs_expanded : Bool
+  help_open : Bool
+  diff_worktree : String
+  diff_selected : Int32
+  diff_anchor : Int32
+  diff_file : Int32
+  diff_closed : Array[Bool]
+  diff_focus : Bool
+  diff_verdict : Int32
+  diff_notes : Array[DiffNote]
+  diff_note_open : Bool
+  diff_file_menu_open : Bool
+  diff_draft : String
+  diff_composer_menu_closed : Bool
+  diff_working : Bool
+  diff_messages : Array[Block]
 }
 pub fn Model::new() -> Self
 
 pub(all) enum Msg {
   SelectWorktree(String)
+  SelectTabAt(Int32)
   CloseTab(String)
   NewTab
   OpenModal
@@ -231,20 +791,152 @@ pub(all) enum Msg {
   NameInput(String)
   SelectCreateFrom(Int32)
   ToggleAdvanced
+  CycleBaseBranch
+  CycleAgent
+  CycleTarget
   ToggleCreateMore
   CreateWorktree
+  BeginRenameWorktree(String)
+  RenameDraftInput(String)
+  CommitRename
+  CancelRename
+  BeginDeleteWorktree(String)
+  ConfirmDeleteWorktree
+  CancelDeleteWorktree
   ToggleWorked(String, Int32)
+  ToggleWorker(String, Int32)
   DraftInput(String)
+  Dictate(Int32)
   Send
+  SetComposerPick(Int32)
+  MoveComposerPick(Int32)
+  ComposerPick(Int32)
+  MoveDiffComposerPick(Int32)
+  DiffComposerPick(Int32)
+  DismissComposerMenu
+  DismissDiffComposerMenu
+  ScrollChat(Double)
   SetSection(NavSection)
   SetScreen(Screen)
   SelectBot(String)
+  MoveBotSelection(Int32)
   SetCenterTab(Int32)
+  CloseBotTab(Int32)
   SetPanelTab(Int32)
+  ToggleBotItemPanel
+  OpenBotItemPanel(Int32)
+  ToggleBotsFleet
+  ToggleBotSearch
+  BotQueryInput(String)
+  ClearBotQuery
+  ToggleBotOptions
+  ToggleBotSessions
+  ToggleBotStatusMenu
+  SetBotItemState(String)
+  ToggleConnector(Int32)
+  ToggleConnectorConnected(Int32)
+  AddBot
+  FileQueryInput(String)
   CommentInput(String)
   SendComment
   ToggleFlag
+  CycleComposerModel
+  CycleAccess
+  SearchInput(String)
+  SetSearchFilter(Int32)
+  MoveSearchSelection(Int32)
+  ClearSearch
+  OpenTopSearchHit
+  Hover(String, Bool)
+  ToggleSidebar
+  ResizeSidebar(Double)
+  ResizeBotsSidebar(Double)
+  ResizeBotsPanel(Double)
+  GoBack
+  GoForward
+  ToggleSidebarOptions
+  ToggleAppMenu
+  CloseAppMenu
+  OpenContextMenu(Int32, String, Int32, @core.Point)
+  CloseContextMenu
+  ContextAction(Int32)
+  CollapseAllWorktrees
+  ExpandAllWorktrees
+  ToggleMachine(String)
+  ToggleProject(String)
+  SelectSearchResult(String)
+  SelectTask(Int32)
+  MoveTaskSelection(Int32)
+  ActivateTaskSelection
+  SetTaskFilter(Int32)
+  SetTaskSource(Int32)
+  TaskQueryInput(String)
+  ClearTaskFilters
+  ToggleTaskComposer
+  TaskDraftInput(String)
+  CycleTaskSource
+  CycleTaskAgent
+  AddTask
+  EditTaskDetail
+  TaskDetailInput(String)
+  SaveTaskDetail
+  CancelTaskDetail
+  CloseTaskDetail
+  ToggleTaskWorktreeLink
+  LinkTaskWorktree(String)
+  UnlinkTaskWorktree
+  OpenTaskWorktreeCreate
+  MarkTaskDone(Int32)
+  ReopenTask(Int32)
+  SelectAutomation(Int32)
+  MoveAutomationSelection(Int32)
+  ActivateAutomationSelection
+  ToggleAutomation(Int32)
+  RunAutomation(Int32)
+  AutomationTick(Double)
+  OpenAutomationEditor
+  EditAutomation(Int32)
+  CloseAutomationEditor
+  AutomationNameInput(String)
+  CycleAutomationSchedule
+  CycleAutomationProject
+  SaveAutomation
+  DeleteAutomation(Int32)
+  ToggleAutomationRuns
+  ToggleHelp
+  SelectDiffLine(Int32)
+  MoveDiffSelection(Int32)
+  ExtendDiffSelection(Int32)
+  SelectDiffFile(Int32)
+  CloseDiffFile(Int32)
+  SetDiffVerdict(Int32)
+  ToggleDiffNote
+  ToggleDiffFileMenu
+  CloseDiffFileMenu
+  OpenDiffFile(Int32)
+  ToggleDiffFocus
+  DiffDraftInput(String)
+  DiffSend
+  SendDiffNote
+  EditDiffNote
+  DeleteDiffNote
+  DiffStop
+  AddDiffFile
+  ShowProjects
+  ShowProjectsOptions
   Noop
+}
+
+#derive(Eq)
+pub(all) struct NavEntry {
+  screen : Screen
+  section : NavSection
+  active : String
+  active_bot : String
+  active_session : String
+  center_tab : Int32
+  bot_chat_open : Bool
+  bot_eng_open : Bool
 }
 
 #derive(Eq)
@@ -272,6 +964,46 @@ pub(all) enum ProjectKind {
 pub(all) enum Screen {
   Projects
   Bots
+  SearchScreen
+  TasksScreen
+  AutomationsScreen
+  DiffScreen
+}
+
+#derive(Eq)
+pub(all) enum SearchGlyph {
+  GlobeGlyph
+  FolderGlyph
+  ScoutGlyph
+  SlackGlyph
+  ClaudeGlyph
+  CodexGlyph
+  FileGlyph
+}
+
+pub(all) struct SearchHit {
+  id : String
+  title : String
+  subtitle : String
+  meta : String
+  glyph : SearchGlyph
+  kind : SearchHitKind
+}
+
+#derive(Eq)
+pub(all) enum SearchHitKind {
+  WorktreeHit
+  BotHit
+  SessionHit
+  FileHit
+}
+
+pub(all) struct SeedFile {
+  path : String
+  project : String
+  worktree_id : String
+  summary : String
+  content : String
 }
 
 pub(all) struct Session {
@@ -288,6 +1020,41 @@ pub(all) enum SessionKind {
   ClaudeSession
   CodexSession
   Slack
+}
+
+pub(all) struct Task {
+  title : String
+  repo : String
+  labels : String
+  source : TaskSource
+  status : TaskStatus
+  time : String
+  worktree_id : String
+  detail : String
+  agent : AgentKind
+  agent_model : String
+  assignee : String
+  activity : Array[TaskActivity]
+}
+
+pub(all) struct TaskActivity {
+  icon : ActivityIcon
+  text : String
+  time : String
+}
+
+#derive(Eq)
+pub(all) enum TaskSource {
+  GitHubTask
+  LinearTask
+  SlackTask
+}
+
+#derive(Eq)
+pub(all) enum TaskStatus {
+  TaskNeedsYou
+  TaskInProgress
+  TaskDone
 }
 
 pub(all) struct ToolChip {

@@ -3,7 +3,9 @@ import {
   "wzzc-dev/moui/apphost",
   "wzzc-dev/moui/backend/linux" @platform_host,
   "wzzc-dev/moui_skia_renderer" @render_skia,
-  "local/orca_moui/app" @app,
+  "local/orca_moui/app",
+  "wzzc-dev/moui/backend/common/services/native",
+  "moonbitlang/core/env",
 }
 
 supported_targets = "native"

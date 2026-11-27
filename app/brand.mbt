@@ -12,6 +12,10 @@ let svg_codex : String = "<svg viewBox=\"0 0 24 24\"><path d=\"M12 2.6L20.1 7.3V
 let svg_loader : String = "<svg viewBox=\"0 0 24 24\"><path d=\"M21 12a9 9 0 1 1-6.219-8.56\"/></svg>"
 
 ///|
+/// Outlined check circle used by completed Codex session rows.
+let svg_check_circle : String = "<svg viewBox=\"0 0 24 24\"><path d=\"M21 12a9 9 0 1 1-18 0a9 9 0 1 1 18 0\"/><path d=\"M8.4 12.3L10.8 14.7L15.6 9.5\"/></svg>"
+
+///|
 /// Microphone.
 let svg_mic : String = "<svg viewBox=\"0 0 24 24\"><path d=\"M12 19V22M19 10v2a7 7 0 0 1-14 0v-2M15 5a3 3 0 0 0-6 0v5a3 3 0 0 0 6 0z\"/></svg>"
 
@@ -58,7 +62,7 @@ pub fn brand_icon(kind : AgentKind, size : Double) -> @moui.View[Msg] {
     Claude =>
       @views.icon_svg(
         svg_claude,
-        size=size,
+        size~,
         color=accent_claude,
         stroke_width=2.1,
         label="Claude",
@@ -66,25 +70,33 @@ pub fn brand_icon(kind : AgentKind, size : Double) -> @moui.View[Msg] {
     Codex =>
       @views.icon_svg(
         svg_codex,
-        size=size,
+        size~,
         color=accent_codex,
         stroke_width=1.8,
         label="Codex",
       )
-    Grok =>
-      x_icon(size, accent_grok)
+    Grok => x_icon(size, accent_grok)
   }
 }
 
 ///|
 /// Small amber progress ring for a running or working agent.
 pub fn spinner(size : Double, color : @graphics.Color) -> @moui.View[Msg] {
+  @views.icon_svg(svg_loader, size~, color~, stroke_width=2.0, label="Working")
+}
+
+///|
+/// Outlined green check circle for a completed agent session.
+pub fn check_circle_icon(
+  size : Double,
+  color : @graphics.Color,
+) -> @moui.View[Msg] {
   @views.icon_svg(
-    svg_loader,
-    size=size,
-    color=color,
-    stroke_width=2.0,
-    label="Working",
+    svg_check_circle,
+    size~,
+    color~,
+    stroke_width=1.7,
+    label="Done",
   )
 }
 
@@ -113,15 +125,31 @@ pub fn status_indicator(status : AgentStatus) -> @moui.View[Msg] {
 }
 
 ///|
-/// A green ring with a check, used on the front of an active tab.
+/// A green ring with a check, used on the front of an active tab. The 16 px
+/// measure matches the reference tab-strip badge.
 pub fn done_badge() -> @moui.View[Msg] {
   @views.container(
-    @views.lucide_icon("check", size=8.0, color=accent_green, stroke_width=2.4),
-    width=12.0,
-    height=12.0,
-    background=@graphics.Color::rgba(r=52.0 / 255.0, g=211.0 / 255.0, b=153.0 / 255.0, a=0.16),
-    corner_radius=6.0,
-    border=Some(border_of(@graphics.Color::rgba(r=52.0 / 255.0, g=211.0 / 255.0, b=153.0 / 255.0, a=0.5), 1.0)),
+    @views.lucide_icon("check", size=9.0, color=accent_green, stroke_width=2.4),
+    width=16.0,
+    height=16.0,
+    background=@graphics.Color::rgba(
+      r=52.0 / 255.0,
+      g=211.0 / 255.0,
+      b=153.0 / 255.0,
+      a=0.16,
+    ),
+    corner_radius=8.0,
+    border=Some(
+      border_of(
+        @graphics.Color::rgba(
+          r=52.0 / 255.0,
+          g=211.0 / 255.0,
+          b=153.0 / 255.0,
+          a=0.5,
+        ),
+        1.0,
+      ),
+    ),
     padding=0.0,
   )
 }
@@ -129,71 +157,83 @@ pub fn done_badge() -> @moui.View[Msg] {
 ///|
 /// Small mic icon for the composer footer.
 pub fn mic_icon(size : Double, color : @graphics.Color) -> @moui.View[Msg] {
-  @views.icon_svg(svg_mic, size=size, color=color, stroke_width=1.7)
+  @views.icon_svg(svg_mic, size~, color~, stroke_width=1.7)
 }
 
 ///|
 /// Arrow-up icon for the circular send button.
 pub fn arrow_up_icon(size : Double, color : @graphics.Color) -> @moui.View[Msg] {
-  @views.icon_svg(svg_arrow_up, size=size, color=color, stroke_width=1.8)
+  @views.icon_svg(svg_arrow_up, size~, color~, stroke_width=1.8)
 }
 
 ///|
 /// Arrow up-right icon for worker card headers.
-pub fn arrow_up_right_icon(size : Double, color : @graphics.Color) -> @moui.View[Msg] {
-  @views.icon_svg(svg_arrow_up_right, size=size, color=color, stroke_width=1.7)
+pub fn arrow_up_right_icon(
+  size : Double,
+  color : @graphics.Color,
+) -> @moui.View[Msg] {
+  @views.icon_svg(svg_arrow_up_right, size~, color~, stroke_width=1.7)
 }
 
 ///|
 /// Shield-alert icon for the composer's Full access chip.
-pub fn shield_alert_icon(size : Double, color : @graphics.Color) -> @moui.View[Msg] {
-  @views.icon_svg(svg_shield_alert, size=size, color=color, stroke_width=1.7)
+pub fn shield_alert_icon(
+  size : Double,
+  color : @graphics.Color,
+) -> @moui.View[Msg] {
+  @views.icon_svg(svg_shield_alert, size~, color~, stroke_width=1.7)
 }
 
 ///|
 /// Sliders icon for the Projects header.
 pub fn sliders_icon(size : Double, color : @graphics.Color) -> @moui.View[Msg] {
-  @views.icon_svg(svg_sliders, size=size, color=color, stroke_width=1.7)
+  @views.icon_svg(svg_sliders, size~, color~, stroke_width=1.7)
 }
 
 ///|
 /// Folder-plus icon for the Projects header.
-pub fn folder_plus_icon(size : Double, color : @graphics.Color) -> @moui.View[Msg] {
-  @views.icon_svg(svg_folder_plus, size=size, color=color, stroke_width=1.7)
+pub fn folder_plus_icon(
+  size : Double,
+  color : @graphics.Color,
+) -> @moui.View[Msg] {
+  @views.icon_svg(svg_folder_plus, size~, color~, stroke_width=1.7)
 }
 
 ///|
 /// Chevrons-up-down icon for the modal select controls.
-pub fn chevrons_up_down_icon(size : Double, color : @graphics.Color) -> @moui.View[Msg] {
-  @views.icon_svg(svg_chevrons_up_down, size=size, color=color, stroke_width=1.7)
+pub fn chevrons_up_down_icon(
+  size : Double,
+  color : @graphics.Color,
+) -> @moui.View[Msg] {
+  @views.icon_svg(svg_chevrons_up_down, size~, color~, stroke_width=1.7)
 }
 
 ///|
 /// Sparkles icon for the modal's Smart chip.
 pub fn sparkles_icon(size : Double, color : @graphics.Color) -> @moui.View[Msg] {
-  @views.icon_svg(svg_sparkles, size=size, color=color, stroke_width=1.5)
+  @views.icon_svg(svg_sparkles, size~, color~, stroke_width=1.5)
 }
 
 ///|
 /// Code brackets used by the modal GitHub chip.
 pub fn code_icon(size : Double, color : @graphics.Color) -> @moui.View[Msg] {
-  @views.icon_svg(svg_code, size=size, color=color, stroke_width=1.8)
+  @views.icon_svg(svg_code, size~, color~, stroke_width=1.8)
 }
 
 ///|
 /// Close cross used by tab and modal close buttons.
 pub fn x_icon(size : Double, color : @graphics.Color) -> @moui.View[Msg] {
-  @views.icon_svg(svg_x, size=size, color=color, stroke_width=1.8, label="Close")
+  @views.icon_svg(svg_x, size~, color~, stroke_width=1.8, label="Close")
 }
 
 ///|
 /// Folder icon for project selects.
 pub fn folder_icon(size : Double, color : @graphics.Color) -> @moui.View[Msg] {
-  @views.lucide_icon("folder", size=size, color=color, stroke_width=1.8)
+  @views.lucide_icon("folder", size~, color~, stroke_width=1.8)
 }
 
 ///|
 /// Loader-circle icon for the live "Working…" row.
 pub fn loader_icon(size : Double, color : @graphics.Color) -> @moui.View[Msg] {
-  @views.icon_svg(svg_loader, size=size, color=color, stroke_width=1.8)
+  @views.icon_svg(svg_loader, size~, color~, stroke_width=1.8)
 }

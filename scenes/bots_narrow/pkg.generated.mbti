@@ -1,0 +1,18 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "local/orca_moui/scenes/bots_narrow"
+
+import {
+  "local/orca_moui/app",
+  "wzzc-dev/moui/core",
+}
+
+// Values
+pub fn program() -> @core.Program[@app.Model, @app.Msg]
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits

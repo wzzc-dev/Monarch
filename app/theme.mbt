@@ -6,6 +6,9 @@ let bg_outer : @graphics.Color = @graphics.Color::from_argb(0xFF0A0A0A)
 let bg_main : @graphics.Color = @graphics.Color::from_argb(0xFF151515)
 
 ///|
+let bg_panel : @graphics.Color = @graphics.Color::from_argb(0xFF181818)
+
+///|
 let bg_sidebar : @graphics.Color = @graphics.Color::from_argb(0xFF2A2A2A)
 
 ///|
@@ -18,13 +21,29 @@ let bg_card : @graphics.Color = @graphics.Color::from_argb(0xFF171717)
 let bg_machine : @graphics.Color = @graphics.Color::from_argb(0xFF323232)
 
 ///|
-let bg_selected : @graphics.Color = @graphics.Color::from_argb(0xFF3F3F3F)
+let bg_selected : @graphics.Color = @graphics.Color::from_argb(0xFF404040)
+
+///|
+let bg_diff_add : @graphics.Color = @graphics.Color::from_argb(0xFF373C29)
+
+///|
+let bg_diff_del : @graphics.Color = @graphics.Color::from_argb(0xFF491716)
+
+///|
+let fg_diff_add : @graphics.Color = @graphics.Color::from_argb(0xFF34D399)
+
+///|
+let fg_diff_del : @graphics.Color = @graphics.Color::from_argb(0xFFF87171)
 
 ///|
 let bg_bubble : @graphics.Color = @graphics.Color::from_argb(0xFF252525)
 
 ///|
-let bg_send : @graphics.Color = @graphics.Color::from_argb(0xFF262626)
+/// Floating note card over the diff code area (one step lighter than the pane).
+let bg_note : @graphics.Color = @graphics.Color::from_argb(0xFF212121)
+
+///|
+let bg_send : @graphics.Color = @graphics.Color::from_argb(0xFF818181)
 
 ///|
 let bg_field : @graphics.Color = @graphics.Color::from_argb(0xFF1D1D1D)
@@ -51,6 +70,11 @@ let fg_muted : @graphics.Color = @graphics.Color::from_argb(0xFF929292)
 let fg_dim : @graphics.Color = @graphics.Color::from_argb(0xFF6F6F6F)
 
 ///|
+/// Muted copy on a white primary button; darker than `fg_dim` so 12 px hints
+/// stay legible against `fg_primary`.
+let fg_inverse_muted : @graphics.Color = @graphics.Color::from_argb(0xFF4A4A4A)
+
+///|
 let accent_claude : @graphics.Color = @graphics.Color::from_argb(0xFFD97757)
 
 ///|
@@ -63,7 +87,13 @@ let accent_grok : @graphics.Color = @graphics.Color::from_argb(0xFFC0C0C0)
 let accent_amber : @graphics.Color = @graphics.Color::from_argb(0xFFFBBF24)
 
 ///|
-let accent_full_access : @graphics.Color = @graphics.Color::from_argb(0xFFEAB308)
+/// Violet used by the diff toolbar's AI-notes sparkles.
+let accent_violet : @graphics.Color = @graphics.Color::from_argb(0xFFA78BFA)
+
+///|
+let accent_full_access : @graphics.Color = @graphics.Color::from_argb(
+  0xFFEAB308,
+)
 
 ///|
 let accent_globe : @graphics.Color = @graphics.Color::from_argb(0xFF60A5FA)
@@ -97,7 +127,10 @@ pub fn black_a(a : Double) -> @graphics.Color {
 
 ///|
 /// A one-pixel border in the given colour.
-pub fn border_of(color : @graphics.Color, width : Double) -> @graphics.BorderStyle {
+pub fn border_of(
+  color : @graphics.Color,
+  width : Double,
+) -> @graphics.BorderStyle {
   @graphics.BorderStyle::new(brush=@graphics.Brush::Solid(color), width~)
 }
 
@@ -110,7 +143,15 @@ pub fn hairline() -> @graphics.BorderStyle {
 ///|
 /// Orca's compositor hairline: rgba(240,240,240,0.09).
 pub fn composer_border() -> @graphics.BorderStyle {
-  border_of(@graphics.Color::rgba(r=240.0 / 255.0, g=240.0 / 255.0, b=240.0 / 255.0, a=0.09), 1.0)
+  border_of(
+    @graphics.Color::rgba(
+      r=240.0 / 255.0,
+      g=240.0 / 255.0,
+      b=240.0 / 255.0,
+      a=0.09,
+    ),
+    1.0,
+  )
 }
 
 ///|
@@ -131,7 +172,11 @@ pub fn sans(size : Double, weight : Int32) -> @text.FontSpec {
 
 ///|
 /// Sans font with an explicit line height for transcript copy.
-pub fn sans_lh(size : Double, weight : Int32, line_height : Double) -> @text.FontSpec {
+pub fn sans_lh(
+  size : Double,
+  weight : Int32,
+  line_height : Double,
+) -> @text.FontSpec {
   @text.FontSpec::new(
     families=@text.FontFamilyStack::named("Inter"),
     size~,
